@@ -1,0 +1,258 @@
+[colors]
+base00 = #2b303b
+base01 = #343d46
+base02 = #4f5b66
+base03 = #65737e
+base04 = #a7adba
+base05 = #c0c5ce
+base06 = #dfe1e8
+base07 = #eff1f5
+base08 = #bf616a
+base09 = #d08770
+base0A = #ebcb8b
+base0B = #a3be8c
+base0C = #96b5b4
+base0D = #8fa1b3
+base0E = #b48ead
+base0F = #ab7967
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/top]
+enable-ipc = true
+width = 100%
+height = 24
+
+background = ${colors.base00}
+foreground = ${colors.base05}
+
+underline-size = 1
+overline-size = 1
+
+border-bottom-size = 2
+border-bottom-color = ${colors.base01}
+
+spacing = 0
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Roboto:pixelsize=10;1
+font-1 = FontAwesome:pixelsize=10;1
+
+modules-left = i3
+modules-center = mpd
+modules-right = date
+
+; modules-left = i3
+; modules-center = mpd
+; modules-right = xkeyboard xbacklight volume wifi battery memory cpu date
+
+tray-position = right
+tray-padding = 4
+tray-maxsize = 16
+
+wm-restack = i3
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+[module/i3]
+type = internal/i3
+index-sort = true
+pin-workspaces = true
+wrapping-scroll = true
+
+ws-icon-0 = 1;
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = ${colors.base00}
+
+label-focused = %icon%
+label-focused-background = ${colors.base01}
+label-focused-foreground = ${colors.base05}
+label-focused-overline = ${colors.base0A}
+label-focused-underline = ${colors.base01}
+label-focused-padding = 2
+
+label-unfocused = %icon%
+label-unfocused-padding = 2
+
+label-urgent = %icon%
+label-urgent-background = ${colors.base08}
+label-urgent-padding = 2
+
+label-visible = %icon%
+label-visible-padding = 2
+
+[module/date]
+type = internal/date
+label =  %date%  %time%
+date = %m/%d/%Y
+time = %H:%M:%S
+interval = 1
+
+[module/mpd]
+type=internal/mpd
+
+################################################################################
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+label = %percentage%%
+format-prefix = " "
+format-prefix-foreground = #666
+
+[module/memory]
+type = internal/memory
+interval = 2
+label = %percentage_used%%
+format-prefix = " "
+format-prefix-foreground = #666
+
+[module/wifi]
+type = internal/network
+interface = net1
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = #666
+format-connected-prefix-offset = -6
+label-connected = %downspeed:8%
+
+format-disconnected = <label-disconnected>
+format-disconnected-prefix = " "
+format-disconnected-prefix-foreground = #666
+label-disconnected = not connected
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = #666
+
+[module/xbacklight]
+type = internal/xbacklight
+format = <ramp> <label>
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = #666
+label-foreground = ${root.foreground}
+
+[module/volume]
+type = internal/volume
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 9
+
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = " "
+format-muted-foreground = #66
+label-muted = sound muted
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-foreground = #666
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+[module/battery]
+type = internal/battery
+full-at = 98
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+label-charging = %percentage%% %time%
+
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%% %time%
+
+format-full = <label-full>
+format-full-prefix = " "
+format-full-prefix-foreground = #666
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = #666
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = #666
+animation-charging-framerate = 750
+
+
+; [module/mpd]
+; type = internal/mpd
+
+; ;format-online = <label-time>  <bar-progress>  <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>
+; format-online = <label-time> %{F#88}|%{F-} <label-song> <icon-prev><icon-stop><toggle><icon-next> <icon-repeat><icon-random>
+; format-online-spacing = 0
+; format-online-background = #ee333333
+; format-online-underline = #cc333333
+; format-online-padding = 3
+
+; format-offline = <label-offline>
+; format-offline-foreground = #66
+
+; label-offline = mpd is off
+
+; label-song-maxlen = 45
+; label-song-ellipsis = true
+
+; label-time-foreground = #77
+
+; icon-prev = 
+; icon-stop = 
+; icon-play = 
+; icon-pause = 
+; icon-next = 
+
+; icon-random = 
+; icon-repeat = 
+
+; toggle-on-foreground = ${colors.base0A}
+; toggle-off-foreground = #66
+
+; [module/xkeyboard]
+; type = internal/xkeyboard
+
+; blacklist-0 = num lock
+
+; format-prefix = " "
+; format-prefix-foreground = #666
+
+; label-layout = %layout%
+
+; label-indicator-padding = 2
+; label-indicator-background = ${colors.base0A}
+
+[module/xwindow]
+type = internal/xwindow
+format = <label>
+label-maxlen = 75
+
+; vim:ft=dosini
+
