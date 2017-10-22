@@ -11,8 +11,6 @@ exec		--no-startup-id /home/dillon/.dropbox-dist/dropboxd
 #### Execute
 # i3Lock script
 bindsym $mod+l exec	--no-startup-id $HOME/.xlock/lock.sh
-# KeePass auto fill
-#bindsym Mod1+control+a exec mono /usr/lib/keepass2/KeePass.exe --auto-type
 # Brightness Controls
 bindsym $mod+F6 exec --no-startup-id xbacklight -dec 10
 bindsym $mod+F7 exec --no-startup-id xbacklight -inc 10
