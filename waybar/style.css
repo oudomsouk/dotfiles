@@ -1,0 +1,80 @@
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: "segoe ui";
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0.0);
+}
+
+tooltip {
+    background-color: #101010;
+    border: 1px solid #393966;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-weight: normal;
+}
+
+#workspaces {
+    border-radius: 12px;
+    color: #cccccc;
+    background-color: #1d1d1d;
+    margin: 8px 4px;
+    padding: 4px 12px;
+}
+
+#workspaces button {
+    min-width: 24px;
+    border-radius: 4px;
+    color: #444444;
+}
+
+#workspaces button.focused {
+    color: #e6e6e6;
+}
+
+#workspaces button.urgent {
+    background-color: #e78a4e;
+    color: #1d2021;
+}
+
+#tray,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#clock {
+    border-radius: 12px;
+    color: #cccccc;
+    background-color: #1d1d1d;
+    margin: 8px 4px;
+    padding: 4px 12px;
+}
+
+#custom-power {
+    border-radius: 100px;
+    color: #cccccc;
+    background-color: #1d1d1d;
+    margin: 8px 8px 8px 4px;
+    padding: 4px 4px 5px 7px;
+}
+
+#cpu.critical,
+#memory.critical {
+    background-color: #c9af82;
+    border: 2px solid #917a53;
+    color: #c14a4a;
+}
+
+#battery.warning,
+#battery.critical,
+#battery.urgent {
+    background-color: #c9af82;
+    border: 2px solid #917a53;
+    color: #ae6330;
+}
